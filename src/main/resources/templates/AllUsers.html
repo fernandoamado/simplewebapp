@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Users List</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<form class="form-inline" method="POST" th:object="${user}"
+      th:action="@{/users}"
+      style="margin: 20px 0">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Name"
+        th:field="*{name}"/>
+        <input type="text" class="form-control" placeholder="Cars Amount"
+        th:field="*{carsQuantity}"/>
+        <button type="submit"
+                class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+<div class="panel panel-default" style="margin: 10px">
+    <div class="panel-heading">
+        <h1 class="panel-title">Users List</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Cars Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.carsQuantity}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
