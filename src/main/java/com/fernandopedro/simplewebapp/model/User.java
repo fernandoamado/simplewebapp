@@ -2,23 +2,22 @@ package com.fernandopedro.simplewebapp.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table (name = "user")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator( name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "person_name")
     private String name;
-    private Integer carsQuantity;
+
+    @Column(name = "quantity_of_cars")
+    private Integer cars;
 
     public Long getId() {
         return id;
@@ -37,10 +36,10 @@ public class User implements Serializable {
     }
 
     public Integer getCarsQuantity() {
-        return carsQuantity;
+        return cars;
     }
 
-    public void setCarsQuantity(Integer carsQuantity) {
-        this.carsQuantity = carsQuantity;
+    public void setCarsQuantity(Integer cars) {
+        this.cars = cars;
     }
 }
