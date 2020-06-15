@@ -14,9 +14,9 @@
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Name"
         th:field="*{name}"/>
-        <input type="text" class="form-control" placeholder="Cars Amount"
+        <input type="text" class="form-control" placeholder="Amount of Cars"
         th:field="*{carsQuantity}"/>
-        <button type="submit"
+        <button type="button"
                 class="btn btn-primary">Add</button>
     </div>
 </form>
@@ -37,6 +37,8 @@
             <tr th:each="user : ${users}">
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.carsQuantity}"></td>
+                <button type="button"
+                        class="btn btn-danger">Delete</button>
             </tr>
             </tbody>
         </table>
