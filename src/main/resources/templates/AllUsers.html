@@ -46,18 +46,19 @@
             </tbody>
         </table>
     </div>
-</div>
 
-<!-- Delete button -->
-<div class="btn-group">
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Delete User
-    </button>
-    <div class="dropdown-menu">
-        <div th:each="user:${users}">
-            <a class="dropdown-item" href="#" th:text="${user.getName()}">Delete</a>
+    <!-- Delete button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Delete User
+        </button>
+        <div class="dropdown-menu">
+            <div th:each="user:${users}">
+                <a class="dropdown-item" href="#" th:text="${user.getName()}">Delete</a>
+            </div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
